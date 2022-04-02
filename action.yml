@@ -1,0 +1,6 @@
+# action.yml
+name: 'tflint-action'
+description: 'terraform lint action'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

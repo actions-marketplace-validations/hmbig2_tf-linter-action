@@ -1,3 +1,3 @@
 #!/bin/sh
 
-sh -c "/usr/bin/tflinter $*"
+sh -c "/usr/bin/tf-linter $*"
