@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sh -c "/usr/bin/tf-linter ${INPUT_FIELDS} \
+sh -c "/usr/bin/tf-linter ${INPUT_FIELDS} ./... \
     | reviewdog -efm="%f:%l:%c: %m" \
         -filter-mode="${INPUT_FILTER_MODE:-added}" \
         -name="tflint-action" \
