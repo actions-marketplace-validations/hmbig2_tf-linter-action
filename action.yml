@@ -1,6 +1,37 @@
 # action.yml
 name: 'tflint-action'
-description: 'terraform lint action'
+description: '🐶 Run tflint with reviewdog on pull requests to improve code review experience.'
+inputs:
+  github_token:
+    description: 'GITHUB_TOKEN.'
+    default: '${{ github.token }}'
+  level:
+    description: 'Report level for reviewdog [info,warning,error]'
+    default: 'error'
+  reporter:
+    description: 'Reporter of reviewdog command [github-pr-check,github-pr-review].'
+    default: 'github-pr-check'
+  fields:
+    description: 'will check whether these fields exist in the test file.'
+    default: ''
+  path:
+    description: "Base directory to run action. Same as `[path]` of `find` command."
+    default: '.'
+  pattern:
+    description: "File patterns of target files. Same as `-name [pattern]` of `find` command."
+    default: '*'
+  exclude:
+    description: "Exclude patterns of target files. Same as `-not -path [exclude]` of `find` command."
+    default: ''
+  filter_mode:
+    description: "Filtering mode for the reviewdog command [added,diff_context,file,nofilter]."
+    default: 'added'
+  fail_on_error:
+    description: "Exit code for reviewdog when errors are found [true,false]."
+    default: 'false'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+branding:
+  icon: 'edit'
+  color: 'gray-dark'
